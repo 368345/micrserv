@@ -1,28 +1,28 @@
 Microservice de Réservation
 Ce projet est un système de microservices pour gérer les réservations de films ou d'émissions de télévision. Il comprend une API Gateway, un microservice de réservation utilisant gRPC, une base de données MongoDB et l'intégration de Kafka pour la gestion des messages.
 
-Prérequis
+Prérequis:
 Node.js (version 14 ou supérieure)
 MongoDB (exécuté localement ou via un service cloud)
 Apache Kafka (exécuté localement ou via un service cloud)
 npm (gestionnaire de paquets Node.js)
 Installation
-1. Cloner le dépôt
+1. Cloner le dépôt:
 bash
 Copier le code
 git clone https://github.com/username/microservice-reservation.git
 cd microservice-reservation
-2. Installer les dépendances
+2. Installer les dépendances:
 bash
 Copier le code
 npm install
-3. Configurer la base de données MongoDB
+3. Configurer la base de données MongoDB:
 Assurez-vous que MongoDB est en cours d'exécution et que vous avez créé une base de données nommée micro. Modifiez le fichier db.js si nécessaire pour pointer vers votre instance MongoDB.
 
-4. Configurer Kafka
+4. Configurer Kafka:
 Assurez-vous que Kafka est en cours d'exécution et configurez les producteurs et consommateurs nécessaires. Modifiez les fichiers de configuration Kafka si nécessaire pour pointer vers votre instance Kafka.
 
-5. Démarrer les services
+5. Démarrer les services:
 Démarrer le microservice de réservation :
 
 bash
@@ -39,7 +39,7 @@ Testez les routes REST via Postman ou un outil similaire.
 
 Créer une réservation
 http
-Copier le code
+Copier le code:
 POST /reservations
 Content-Type: application/json
 
@@ -67,13 +67,13 @@ PUT /reservations/:id
 GraphQL
 Accédez à l'interface GraphQL à l'adresse : http://localhost:3000/graphql
 
-Kafka
+Kafka:
 Kafka est utilisé pour la gestion des messages entre microservices. Les producteurs envoient des messages à Kafka, et les consommateurs les traitent.
 
-Configuration Kafka
+Configuration Kafka:
 Configurez les producteurs et consommateurs Kafka dans vos fichiers de configuration en fonction de vos besoins.
 
-Technologies Utilisées
+Technologies Utilisées:
 Node.js
 Express.js
 MongoDB
