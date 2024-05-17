@@ -1,0 +1,60 @@
+syntax = "proto3";
+package reservation;
+
+// Définition du message de la réservation
+message Reservation {
+  string id = 1;                     // ID de la réservation
+  string userId = 2;                 // ID de l'utilisateur effectuant la réservation
+  string movieOrTvShowId = 3;       // ID du film ou de la série TV réservé(e)
+  string reservationDate = 4;       // Date de la réservation (format ISO 8601)
+  string reservationTime = 5;       // Heure de la réservation (format 24 heures)
+  int32 numberOfSeats = 6;          // Nombre de places réservées
+  // Ajouter d'autres champs au besoin
+}
+
+// Message de demande pour créer une réservation
+message CreateReservationRequest {
+  string userId = 1;                 // ID de l'utilisateur effectuant la réservation
+  string movieOrTvShowId = 2;       // ID du film ou de la série TV à réserver
+  string reservationDate = 3;       // Date de la réservation (format ISO 8601)
+  string reservationTime = 4;       // Heure de la réservation (format 24 heures)
+  int32 numberOfSeats = 5;          // Nombre de places à réserver
+  // Ajouter d'autres champs au besoin
+}
+
+// Réponse à la demande de création de réservation
+message CreateReservationResponse {
+  string id = 1;                     // ID de la réservation créée
+  string message = 2;                // Message indiquant le succès ou l'échec de la création
+  // Ajouter d'autres champs au besoin
+}
+
+// Message de demande pour récupérer une réservation
+message GetReservationRequest {
+  string id = 1;                     // ID de la réservation à récupérer
+}
+
+// Réponse à la demande de récupération de réservation
+message GetReservationResponse {
+  Reservation reservation = 1;      // Détails de la réservation récupérée
+  // Ajouter d'autres champs au besoin
+}
+
+// Message de demande pour annuler une réservation
+message CancelReservationRequest {
+  string id = 1;                     // ID de la réservation à annuler
+}
+
+// Réponse à la demande d'annulation de réservation
+message CancelReservationResponse {
+  string message = 1;                // Message indiquant le succès ou l'échec de l'annulation
+  // Ajouter d'autres champs au besoin
+}
+
+// Service de gestion des réservations
+service ReservationService {
+  rpc CreateReservation(CreateReservationRequest) returns (CreateReservationResponse);
+  rpc GetReservation(GetReservationRequest) returns (GetReservationResponse);
+  rpc CancelReservation(CancelReservationRequest) returns (CancelReservationResponse);
+  // Ajouter d'autres méthodes au besoin
+}
